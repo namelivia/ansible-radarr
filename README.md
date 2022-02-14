@@ -15,3 +15,5 @@ roles:
 ## Required variables
  - `cloudwatch_region` Cloudwatch region to send the logs to.
  - `cloudwatch_log_group` Cloudwatch log group to send the logs to.
+ - `radarr_downloads_folder` Folder path to place downloads in.
+ - `radarr_movies_folder` Folder path to place movies in.

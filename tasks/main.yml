@@ -6,6 +6,9 @@
       - docker_network_name is defined
       - cloudwatch_region is defined
       - cloudwatch_log_group is defined
+      - cloudwatch_log_group is defined
+      - radarr_downloads_folder is defined
+      - radarr_movies_folder is defined
 
 - name: Create the dockernetwork
   docker_network:
@@ -46,9 +49,9 @@
     ports:
       - 7878:7878
     volumes:
-      - "{{ hostvars[inventory_hostname].working_directory }}{{ application_name }}/downloads:/downloads"
+      - "{{ radarr_downloads_folder }}:/downloads"
       - "{{ hostvars[inventory_hostname].working_directory }}{{ application_name }}/config:/config"
-      - "{{ hostvars[inventory_hostname].working_directory }}{{ application_name }}/movies:/movies"
+      - "{{ radarr_movies_folder }}:/movies"
     env:
       PUID: "1000"
       PGID: "1000"
